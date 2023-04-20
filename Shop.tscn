@@ -1,0 +1,167 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Assets/farmingTilesheetComplete.png" type="Texture" id=1]
+[ext_resource path="res://Shop.gd" type="Script" id=2]
+[ext_resource path="res://shopmenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pink_flowers.tscn" type="PackedScene" id=4]
+[ext_resource path="res://orange_flowers.tscn" type="PackedScene" id=5]
+[ext_resource path="res://purple_flowers.tscn" type="PackedScene" id=6]
+[ext_resource path="res://magenta_flowers.tscn" type="PackedScene" id=7]
+[ext_resource path="res://white_flowers.tscn" type="PackedScene" id=8]
+[ext_resource path="res://yellow_flowers.tscn" type="PackedScene" id=9]
+[ext_resource path="res://white_flower_bed.tscn" type="PackedScene" id=10]
+[ext_resource path="res://yellow_flower_bed.tscn" type="PackedScene" id=11]
+[ext_resource path="res://pink_flower_bed.tscn" type="PackedScene" id=12]
+[ext_resource path="res://blue_picnic.tscn" type="PackedScene" id=13]
+[ext_resource path="res://pink_picnic.tscn" type="PackedScene" id=14]
+[ext_resource path="res://blue_seesaw.tscn" type="PackedScene" id=15]
+[ext_resource path="res://red_seesaw.tscn" type="PackedScene" id=16]
+[ext_resource path="res://tan_seesaw.tscn" type="PackedScene" id=17]
+[ext_resource path="res://sandbox.tscn" type="PackedScene" id=18]
+[ext_resource path="res://blue_trampoline.tscn" type="PackedScene" id=19]
+[ext_resource path="res://yellow_trampoline.tscn" type="PackedScene" id=20]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 174, 34, 29 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 14.4, 12 )
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 14.4
+
+[node name="Shop" type="StaticBody2D"]
+position = Vector2( 480, 168 )
+scale = Vector2( 5, 5 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 6.4 )
+frames = SubResource( 2 )
+
+[node name="shopart" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.59999, 4 )
+shape = SubResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1.60001, 16 )
+shape = SubResource( 6 )
+
+[node name="shopmenu" parent="." instance=ExtResource( 3 )]
+position = Vector2( -35.2, -57.6 )
+
+[node name="pink_flowers" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 32, 4.8 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="orange_flowers" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 32, 20.8 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="purple_flowers" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 32, -11.2 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="magenta_flowers" parent="." instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 54.4, -11.2 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="white_flowers" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 54.4, 4.79999 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="yellow_flowers" parent="." instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 54.4, 20.8 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="yellow_flower_bed" parent="." instance=ExtResource( 11 )]
+visible = false
+position = Vector2( 84.8, 8 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="white_flower_bed" parent="." instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 84.8, -12.8 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="pink_flower_bed" parent="." instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 84.8, 28.8 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="blue_picnic" parent="." instance=ExtResource( 13 )]
+visible = false
+position = Vector2( -49.6, -3.20001 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="pink_picnic" parent="." instance=ExtResource( 14 )]
+visible = false
+position = Vector2( -49.6, 27.2 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="blue_seesaw" parent="." instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 43.2, -35.2 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="red_seesaw" parent="." instance=ExtResource( 16 )]
+visible = false
+position = Vector2( -3.20001, -35.2 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="tan_seesaw" parent="." instance=ExtResource( 17 )]
+visible = false
+position = Vector2( -49.6, -35.2 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="sandbox" parent="." instance=ExtResource( 18 )]
+visible = false
+position = Vector2( 36.8, 46.4 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="blue_trampoline" parent="." instance=ExtResource( 19 )]
+visible = false
+position = Vector2( 121.6, 6.39999 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="yellow_trampoline" parent="." instance=ExtResource( 20 )]
+visible = false
+position = Vector2( -96, 8 )
+scale = Vector2( 0.1, 0.1 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
